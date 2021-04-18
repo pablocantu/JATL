@@ -6,7 +6,7 @@ export class TodoList extends Component {
 
     }
 
-    render() {
+    render(): JSX.Element {
         return (
             <div>
 

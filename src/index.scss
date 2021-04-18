@@ -1,1 +1,4 @@
-@import 'assets/styles/variables.scss';
+body {
+	color: var(--color);
+	background-color: var(--background);
+}
