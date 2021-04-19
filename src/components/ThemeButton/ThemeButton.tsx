@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-type Props = {
-    children: React.ReactNode
-}
-
-type Theme = 'light' | 'dark';
+type ThemeType = 'light' | 'dark';
 
 type ThemeColors = {
     text: string,
@@ -16,12 +12,7 @@ type ThemeColors = {
     warning: string
 }
 
-type ThemeOptions = {
-    light: ThemeColors,
-    dark: ThemeColors
-}
-
-const themes: ThemeOptions = {
+const themes = {
     light: {
         text: '#262632',
         background: '#f7f7ff',
@@ -42,8 +33,8 @@ const themes: ThemeOptions = {
     }
 }
 
-const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
-    const [preferedTheme, setPreferedTheme] = useState<Theme>('light');
+const ThemeProvider: React.FC = () => {
+    const [preferedTheme, setPreferedTheme] = useState<ThemeType>('light');
 
     useEffect(() => {
         const prefersLightTheme = window.matchMedia('(prefers-color-scheme: light)').matches;
@@ -62,8 +53,11 @@ const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
 
     return (
         <div>
-            <button>Toggle Theme</button>
-            {children}
+            <button
+                onClick={() => setPreferedTheme(preferedTheme === 'light' ? 'dark' : 'light')}
+            >
+                Toggle Theme
+            </button>
         </div>
     );
 }
