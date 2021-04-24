@@ -1,14 +1,13 @@
 import React from 'react';
 
 import Board from 'components/Board/Board';
-import ThemeProvider from 'components/ThemeButton/ThemeButton';
+import ThemeProvider from 'components/contexts/ThemeProvider/ThemeProvider';
 
 function App(): JSX.Element {
 	return (
-		<div>
-			<ThemeProvider />
+		<ThemeProvider>
 			<Board title='Hello Board' />
-		</div>
+		</ThemeProvider>
 	);
 }
 

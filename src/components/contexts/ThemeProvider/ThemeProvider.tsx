@@ -1,21 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
-type ThemeType = 'light' | 'dark';
+import {
+    ThemeType,
+    ThemeColors,
+    ThemeOption
+} from './models/themeModels';
 
-type ThemeColors = {
-    text: string,
-    background: string,
-    primary: string,
-    secondary: string,
-    success: string,
-    danger: string,
-    warning: string
-}
-
-const themes = {
+const themes: ThemeOption = {
     light: {
         text: '#262632',
-        background: '#f7f7ff',
+        backgroundPrimary: '#EFEFEF',
+        backgroundSecondary: '#E8E8E8',
+        backgroundTertirary: '#DBDBDB',
         primary: '#454ade',
         secondary: '#ee5622',
         success: '#139a43',
@@ -24,7 +20,9 @@ const themes = {
     },
     dark: {
         text: '#f7f7ff',
-        background: '#262632',
+        backgroundPrimary: '#202225',
+        backgroundSecondary: '#2F3136',
+        backgroundTertirary: '#3F434A',
         primary: '#454ade',
         secondary: '#ee5622',
         success: '#139a43',
@@ -33,7 +31,18 @@ const themes = {
     }
 }
 
-const ThemeProvider: React.FC = () => {
+interface Props {
+    children: React.ReactNode
+}
+
+interface ContextProps {
+    preferedTheme: string,
+    setPreferedTheme: React.Dispatch<React.SetStateAction<ThemeType>> | (() => string)
+}
+
+export const ThemeContext = createContext<Partial<ContextProps>>({});
+
+const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
     const [preferedTheme, setPreferedTheme] = useState<ThemeType>('light');
 
     useEffect(() => {
@@ -52,13 +61,9 @@ const ThemeProvider: React.FC = () => {
     }, [preferedTheme]);
 
     return (
-        <div>
-            <button
-                onClick={() => setPreferedTheme(preferedTheme === 'light' ? 'dark' : 'light')}
-            >
-                Toggle Theme
-            </button>
-        </div>
+        <ThemeContext.Provider value={{ preferedTheme, setPreferedTheme }}>
+            {children}
+        </ThemeContext.Provider>
     );
 }
 
