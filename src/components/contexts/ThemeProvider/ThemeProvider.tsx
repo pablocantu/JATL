@@ -36,32 +36,32 @@ interface Props {
 }
 
 interface ContextProps {
-    preferedTheme: string,
-    setPreferedTheme: React.Dispatch<React.SetStateAction<ThemeType>> | (() => string)
+    theme: string,
+    setTheme: React.Dispatch<React.SetStateAction<ThemeType>> | (() => string)
 }
 
 export const ThemeContext = createContext<Partial<ContextProps>>({});
 
 const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
-    const [preferedTheme, setPreferedTheme] = useState<ThemeType>('light');
+    const [theme, setTheme] = useState<ThemeType>('light');
 
     useEffect(() => {
-        const prefersLightTheme = window.matchMedia('(prefers-color-scheme: light)').matches;
-        setPreferedTheme(prefersLightTheme ? 'light' : 'dark');
+        const lightTheme = window.matchMedia('(prefers-color-scheme: light)').matches;
+        setTheme(lightTheme ? 'light' : 'dark');
     }, []);
 
     useEffect(() => {
-        const themeToApply = themes[preferedTheme];
+        const themeToApply = themes[theme];
         const rootStyling = document.documentElement.style;
 
         for (const property in themeToApply) {
             rootStyling.setProperty(`--${property}`, themeToApply[property as keyof ThemeColors]);
         }
 
-    }, [preferedTheme]);
+    }, [theme]);
 
     return (
-        <ThemeContext.Provider value={{ preferedTheme, setPreferedTheme }}>
+        <ThemeContext.Provider value={{ theme, setTheme: setTheme }}>
             {children}
         </ThemeContext.Provider>
     );
