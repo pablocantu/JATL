@@ -13,6 +13,7 @@ const Input: React.FC<Props> = ({ value, placeholder, ...props }: Props) => {
             </div>
             <input
                 className='bg-transparent border-b border-c-primary w-full'
+                value={value}
                 placeholder={placeholder}
                 {...props}
             />
