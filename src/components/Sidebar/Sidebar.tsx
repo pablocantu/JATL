@@ -6,7 +6,7 @@ const Sidebar: React.FC = () => {
     const { theme, setTheme } = useContext(ThemeContext);
 
     return (
-        <div className='bg-c-bg-secondary p-6 h-screen'>
+        <div className='bg-c-bg-secondary p-6 h-full'>
             <button
                 onClick={() => {
                     if (setTheme) {
