@@ -8,14 +8,12 @@ const TodoList: React.FC = () => {
 
     useEffect(() => {
         setNewTodo('');
-
-        return () => {
-            console.log('TodoList, use effect cleanup')
-        }
     }, [todos]);
 
     const onAddNewTodo = () => {
-        setTodos([...todos, newTodo[0].toUpperCase() + newTodo.slice(1)]);
+        if (newTodo) {
+            setTodos([...todos, newTodo[0].toUpperCase() + newTodo.slice(1)]);
+        }
     }
 
     return (

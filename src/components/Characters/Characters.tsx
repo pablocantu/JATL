@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CharacterList: React.FC = () => {
+const Characters: React.FC = () => {
     return (
         <div>
             Character List
@@ -8,4 +8,4 @@ const CharacterList: React.FC = () => {
     );
 }
 
-export default CharacterList;
+export default Characters;

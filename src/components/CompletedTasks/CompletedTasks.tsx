@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CompletedList: React.FC = () => {
+const CompletedTasks: React.FC = () => {
     return (
         <div>
             Completed List
@@ -8,4 +8,4 @@ const CompletedList: React.FC = () => {
     );
 }
 
-export default CompletedList;
+export default CompletedTasks;
