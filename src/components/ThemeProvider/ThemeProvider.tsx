@@ -4,7 +4,7 @@ import {
     ThemeType,
     ThemeColors,
     ThemeOption
-} from './models/themeModels';
+} from './config/themeModels';
 
 const themes: ThemeOption = {
     light: {

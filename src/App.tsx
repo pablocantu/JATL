@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ThemeProvider from 'components/contexts/ThemeProvider/ThemeProvider';
+import ThemeProvider from 'components/ThemeProvider/ThemeProvider';
 import Layout from 'components/Layout/Layout';
 
 function App(): JSX.Element {

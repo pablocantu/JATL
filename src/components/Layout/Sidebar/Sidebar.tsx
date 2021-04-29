@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { ThemeContext } from '../contexts/ThemeProvider/ThemeProvider';
+import { ThemeContext } from '../../ThemeProvider/ThemeProvider';
 
 const Sidebar: React.FC = () => {
     const { theme, setTheme } = useContext(ThemeContext);

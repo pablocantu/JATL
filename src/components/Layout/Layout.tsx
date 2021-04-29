@@ -1,9 +1,9 @@
 import React from 'react';
 
-import CharacterList from 'components/CharacterList/CharacterList';
-import CompletedList from 'components/CompletedList/CompletedList';
-import Sidebar from 'components/Sidebar/Sidebar';
-import TodoList from 'components/TodoList/TodoList';
+import CharacterList from 'components/Layout/CharacterList/CharacterList';
+import CompletedList from 'components/Layout/CompletedList/CompletedList';
+import Sidebar from 'components/Layout/Sidebar/Sidebar';
+import TodoList from 'components/Layout/TodoList/TodoList';
 
 const Layout: React.FC = () => {
     return (
