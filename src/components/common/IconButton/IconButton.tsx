@@ -1,19 +1,35 @@
 import React from 'react';
 
+import cp from 'utils/classParser';
+
 interface Props {
-    iconClass: string,
+    icon: string,
     onClick: () => void,
-    disabled?: boolean
+    disabled?: boolean,
+    addClass?: string
 }
 
 const IconButton: React.FC<Props> = ({
-    iconClass = 'fas fa-smile-beam',
+    icon = 'fas fa-smile-beam',
+    addClass,
     onClick,
     disabled = false
 }: Props) => {
     return (
         <i
-            className={`hover:rounded-full hover:p-1 ${iconClass}`}
+            className={cp(`
+                flex items-center
+                text-center
+                rounded-full
+                cursor-pointer
+                p-3
+                w-10 h-10
+                ${icon}
+                ${addClass} 
+                hover:rounded-full
+                hover:bg-opacity-10
+                hover:bg-black
+            `)}
             onClick={() => {
                 if (onClick && !disabled) onClick();
             }}

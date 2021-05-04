@@ -1,18 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Input from 'components/common/Input/Input';
+import Task from 'components/common/Task/Task';
+
+import { BoardContext } from '../Board';
 
 const TodoList: React.FC = () => {
-    const [newTodo, setNewTodo] = useState('');
-    const [todos, setTodos] = useState<string[]>([]);
+    const [taskTitle, setTaskTitle] = useState<string>('hello');
+    const { todos, onAddTodo } = useContext(BoardContext);
 
     useEffect(() => {
-        setNewTodo('');
+        setTaskTitle('');
     }, [todos]);
 
-    const onAddNewTodo = () => {
-        if (newTodo) {
-            setTodos([...todos, newTodo[0].toUpperCase() + newTodo.slice(1)]);
+    const onAddNewTodo = (task?: string) => {
+        if (task) {
+            if (onAddTodo) {
+                onAddTodo({
+                    id: uuidv4(),
+                    title: task[0].toUpperCase() + task.slice(1),
+                    completed: false
+                });
+            }
         }
     }
 
@@ -21,28 +31,36 @@ const TodoList: React.FC = () => {
             <div className='flex flex-row items-end gap-x-4 w-full'>
                 <div className='flex-grow'>
                     <Input
-                        value={newTodo}
+                        value={taskTitle}
                         type='text'
-                        placeholder={newTodo ? 'Awesome! Lets get to it!' : 'What\'s on your mind?'}
-                        onChange={({ target: { value } }) => setNewTodo(value)}
+                        placeholder={taskTitle ? 'Awesome! Lets get to it!' : 'What\'s on your mind?'}
+                        onChange={({ target: { value } }) => setTaskTitle(value)}
                         onKeyUp={({ key }) => {
                             if (key == 'Enter' || Number(key) == 13) {
-                                onAddNewTodo();
+                                onAddNewTodo(taskTitle);
                             }
                         }}
                     />
                 </div>
                 <button
                     className='bg-c-primary rounded-md py-2 px-4 text-white font-bold font-size text-lg'
-                    onClick={onAddNewTodo}
+                    onClick={() => onAddNewTodo(taskTitle)}
                 >
                     +
                 </button>
             </div>
-            <div>
+            <div className='flex flex-col gap-y-2 w-full'>
                 {
-                    todos.map(todo => {
-                        return <div key={todo}>{todo}</div>;
+                    todos?.map(todo => {
+                        return <Task
+                            addClass='flex-grow'
+                            key={todo.id}
+                            title={todo.title}
+                            completed={todo.completed}
+                            onComplete={() => console.log('Implement onComplete')}
+                            onDelete={() => console.log('Implement onDelete')}
+                            onRestore={() => console.log('Implement onRestore')}
+                        />;
                     })
                 }
             </div>

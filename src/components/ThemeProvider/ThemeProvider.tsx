@@ -8,7 +8,7 @@ import {
 
 const themes: ThemeOption = {
     light: {
-        text: '#262632',
+        text: '#3F424A',
         backgroundPrimary: '#EFEFEF',
         backgroundSecondary: '#E8E8E8',
         backgroundTertirary: '#DBDBDB',
@@ -37,7 +37,7 @@ interface Props {
 
 interface ContextProps {
     theme: string,
-    setTheme: React.Dispatch<React.SetStateAction<ThemeType>> | (() => string)
+    setTheme: React.Dispatch<React.SetStateAction<ThemeType>>
 }
 
 export const ThemeContext = createContext<Partial<ContextProps>>({});
@@ -61,7 +61,7 @@ const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
     }, [theme]);
 
     return (
-        <ThemeContext.Provider value={{ theme, setTheme: setTheme }}>
+        <ThemeContext.Provider value={{ theme, setTheme }}>
             {children}
         </ThemeContext.Provider>
     );
