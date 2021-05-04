@@ -12,7 +12,8 @@ const TodoList: React.FC = () => {
         todos,
         onAddTodo,
         onCheckTodo,
-        onRemoveTodo
+        onRemoveTodo,
+        onRestoreTodo
     } = useContext(BoardContext);
 
     useEffect(() => {
@@ -65,7 +66,7 @@ const TodoList: React.FC = () => {
                                 completed={todo.completed}
                                 onComplete={() => onCheckTodo && onCheckTodo(todo.id)}
                                 onDelete={() => onRemoveTodo && onRemoveTodo(todo.id)}
-                                onRestore={() => console.log('Implement onRestore')}
+                                onRestore={() => onRestoreTodo && onRestoreTodo(todo.id)}
                             />;
                         })
                 }
