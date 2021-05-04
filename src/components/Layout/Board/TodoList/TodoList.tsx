@@ -8,7 +8,11 @@ import { BoardContext } from '../Board';
 
 const TodoList: React.FC = () => {
     const [taskTitle, setTaskTitle] = useState<string>('hello');
-    const { todos, onAddTodo } = useContext(BoardContext);
+    const {
+        todos,
+        onAddTodo,
+        onCheckTodo,
+    } = useContext(BoardContext);
 
     useEffect(() => {
         setTaskTitle('');
@@ -51,17 +55,18 @@ const TodoList: React.FC = () => {
             </div>
             <div className='flex flex-col gap-y-2 w-full py-4'>
                 {
-                    todos?.map(todo => {
-                        return <Task
-                            addClass='flex-grow'
-                            key={todo.id}
-                            title={todo.title}
-                            completed={todo.completed}
-                            onComplete={() => console.log('Implement onComplete')}
-                            onDelete={() => console.log('Implement onDelete')}
-                            onRestore={() => console.log('Implement onRestore')}
-                        />;
-                    })
+                    todos?.filter(todo => !todo.completed)
+                        .map(todo => {
+                            return <Task
+                                addClass='flex-grow'
+                                key={todo.id}
+                                title={todo.title}
+                                completed={todo.completed}
+                                onComplete={() => onCheckTodo && onCheckTodo(todo.id)}
+                                onDelete={() => console.log('Implement onDelete')}
+                                onRestore={() => console.log('Implement onRestore')}
+                            />;
+                        })
                 }
             </div>
         </div>
