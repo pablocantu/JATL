@@ -49,7 +49,7 @@ const TodoList: React.FC = () => {
                     +
                 </button>
             </div>
-            <div className='flex flex-col gap-y-2 w-full'>
+            <div className='flex flex-col gap-y-2 w-full py-4'>
                 {
                     todos?.map(todo => {
                         return <Task
