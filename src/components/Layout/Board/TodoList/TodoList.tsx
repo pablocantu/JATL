@@ -8,7 +8,6 @@ import Task from 'components/common/Task/Task';
 import { BoardContext } from '../Board';
 
 const TodoList: React.FC = () => {
-    const [taskTitle, setTaskTitle] = useState<string>('hello');
     const {
         todos,
         onAddTodo,
@@ -16,6 +15,8 @@ const TodoList: React.FC = () => {
         onRemoveTodo,
         onRestoreTodo
     } = useContext(BoardContext);
+
+    const [taskTitle, setTaskTitle] = useState<string>('hello');
 
     useEffect(() => {
         setTaskTitle('');

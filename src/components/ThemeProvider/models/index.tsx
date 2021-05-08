@@ -1,5 +1,4 @@
 export type ThemeType = 'light' | 'dark';
-
 export interface ThemeColors {
     text: string,
     backgroundPrimary: string,
@@ -11,7 +10,6 @@ export interface ThemeColors {
     danger: string,
     warning: string
 }
-
 export interface ThemeOption {
     [opt: string]: ThemeColors
 }
