@@ -6,8 +6,8 @@ interface Props {
     key?: string | number,
     title: string,
     completed: boolean,
-    onComplete: () => void,
-    onDelete: () => void,
+    onComplete?: () => void,
+    onDelete?: () => void,
     onRestore?: () => void,
     addClass?: string
 }
