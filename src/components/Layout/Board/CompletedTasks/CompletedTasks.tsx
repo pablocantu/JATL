@@ -1,10 +1,11 @@
+import ContentBox from 'components/common/ContentBox/ContentBox';
 import React from 'react';
 
 const CompletedTasks: React.FC = () => {
     return (
-        <div>
-            Completed List
-        </div>
+        <ContentBox>
+            Completed Tasks
+        </ContentBox>
     );
 }
 

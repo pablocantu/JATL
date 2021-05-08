@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import ContentBox from 'components/common/ContentBox/ContentBox';
 import Input from 'components/common/Input/Input';
 import Task from 'components/common/Task/Task';
 
@@ -33,7 +34,7 @@ const TodoList: React.FC = () => {
     }
 
     return (
-        <div className='p-8 bg-c-bg-secondary rounded-md'>
+        <ContentBox>
             <div className='flex flex-row items-end gap-x-4 w-full'>
                 <div className='flex-grow'>
                     <Input
@@ -71,7 +72,7 @@ const TodoList: React.FC = () => {
                         })
                 }
             </div>
-        </div>
+        </ContentBox>
     );
 }
 
