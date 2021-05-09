@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 
-import Characters from 'components/Layout/Board/Characters/Characters';
+import Characters from 'components/Layout/Board/Heroes/Heroes';
 import CompletedTasks from 'components/Layout/Board/CompletedTasks/CompletedTasks';
 import TodoList from 'components/Layout/Board/TodoList/TodoList';
 
