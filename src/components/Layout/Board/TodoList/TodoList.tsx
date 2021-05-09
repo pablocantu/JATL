@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import ContentBox from 'components/common/ContentBox/ContentBox';
@@ -16,11 +16,7 @@ const TodoList: React.FC = () => {
         onRestoreTodo
     } = useContext(BoardContext);
 
-    const [taskTitle, setTaskTitle] = useState<string>('hello');
-
-    useEffect(() => {
-        setTaskTitle('');
-    }, [todos]);
+    const [taskTitle, setTaskTitle] = useState<string>('');
 
     const onAddNewTodo = (task?: string) => {
         if (task) {
@@ -46,6 +42,7 @@ const TodoList: React.FC = () => {
                         onKeyUp={({ key }) => {
                             if (key == 'Enter' || Number(key) == 13) {
                                 onAddNewTodo(taskTitle);
+                                setTaskTitle('');
                             }
                         }}
                     />
