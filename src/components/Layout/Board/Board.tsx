@@ -57,15 +57,19 @@ const Board: React.FC = () => {
             onClearCompleted
         }}>
             <div className='w-11/12 sm:w-10/12 mx-auto py-8'>
-                <div className='grid grid-cols-12 md:grid-rows-2 h-full gap-4'>
-                    <div className='col-span-12 md:col-span-2 md:row-span-2'>
+                <div className='grid grid-cols-12 h-full gap-5'>
+                    <div className='col-span-12 md:col-span-2 md:row-span-1'>
                         <Characters />
                     </div>
-                    <div className='col-span-12 md:col-span-10 xl:col-span-6'>
-                        <TodoList />
-                    </div>
-                    <div className='col-span-12 md:col-span-10 xl:col-span-4'>
-                        <CompletedTasks />
+                    <div className='col-span-12 md:col-span-10'>
+                        <div className='flex flex-col xl:flex-row gap-5'>
+                            <div className='w-full'>
+                                <TodoList />
+                            </div>
+                            <div className='w-full xl:w-5/12'>
+                                <CompletedTasks />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
