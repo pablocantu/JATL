@@ -1,0 +1,16 @@
+<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="sun">
+        <g id="center">
+            <path id="innerCircle" fill-rule="evenodd" clip-rule="evenodd" d="M17.3137 24.6667C21.5479 24.6667 24.9804 21.2342 24.9804 17C24.9804 12.7658 21.5479 9.33334 17.3137 9.33334C13.0795 9.33334 9.64703 12.7658 9.64703 17C9.64703 21.2342 13.0795 24.6667 17.3137 24.6667ZM17.3137 23.3334C20.8115 23.3334 23.647 20.4978 23.647 17C23.647 13.5022 20.8115 10.6667 17.3137 10.6667C13.8159 10.6667 10.9803 13.5022 10.9803 17C10.9803 20.4978 13.8159 23.3334 17.3137 23.3334Z" fill="white"/>
+            <path id="innerHalf" d="M24.9804 17C24.9804 21.2342 21.6972 24.6667 17.6471 24.6667C17.6471 24.6667 17.6472 13.5675 17.6472 9.33334C21.6973 9.33334 24.9804 12.7658 24.9804 17Z" fill="white"/>
+        </g>
+        <rect id="ray9" x="4.23529" y="6.09909" width="1.80392" height="5.41176" rx="0.901961" transform="rotate(-45 4.23529 6.09909)" fill="white"/>
+        <rect id="ray8" x="0.627441" y="17.451" width="1.80392" height="5.41176" rx="0.901961" transform="rotate(-90 0.627441 17.451)" fill="white"/>
+        <rect id="ray6" x="8.06201" y="23.7647" width="1.80392" height="5.41176" rx="0.901961" transform="rotate(45 8.06201 23.7647)" fill="white"/>
+        <rect id="ray5" x="16.8627" y="28.2745" width="1.80392" height="5.41176" rx="0.901961" fill="white"/>
+        <rect id="ray4" x="25.8823" y="25.0403" width="1.80392" height="5.41176" rx="0.901961" transform="rotate(-45 25.8823 25.0403)" fill="white"/>
+        <rect id="ray3" x="28.5883" y="17.451" width="1.80392" height="5.41176" rx="0.901961" transform="rotate(-90 28.5883 17.451)" fill="white"/>
+        <rect id="ray2" x="29.7091" y="4.82352" width="1.80392" height="5.41176" rx="0.901961" transform="rotate(45 29.7091 4.82352)" fill="white"/>
+        <rect id="ray1" x="16.8627" y="0.313721" width="1.80392" height="5.41176" rx="0.901961" fill="white"/>
+    </g>
+</svg>

@@ -36,7 +36,7 @@ interface Props {
 }
 
 interface ContextProps {
-    theme: string,
+    theme: ThemeType,
     setTheme: React.Dispatch<React.SetStateAction<ThemeType>>
 }
 
