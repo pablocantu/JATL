@@ -8,7 +8,8 @@ const Characters: React.FC = () => {
     const {
         heroes,
         hero,
-        onSelectHero
+        onSelectHero,
+        onUnlockHero
     } = useContext(BoardContext);
 
     return (
@@ -31,9 +32,11 @@ const Characters: React.FC = () => {
                             src={hero.src}
                             name={hero.name}
                             selected={false}
+                            unlocked={hero.unlocked}
                             color={hero.color}
                             cost={hero.cost}
-                            onSelectHero={() => onSelectHero && onSelectHero(hero)}
+                            onSelect={() => onSelectHero && onSelectHero(hero)}
+                            onUnlock={() => onUnlockHero && onUnlockHero(hero)}
                         />;
                     })
                 }

@@ -9,9 +9,11 @@ interface Props {
     name: string | undefined,
     color: string | undefined,
     selected: boolean | undefined,
+    unlocked?: boolean | undefined,
     cost?: number,
     description?: string,
-    onSelectHero?: () => void
+    onSelect?: () => void,
+    onUnlock?: () => void
 }
 
 const Character: React.FC<Props> = ({
@@ -19,9 +21,11 @@ const Character: React.FC<Props> = ({
     name,
     color,
     selected,
+    unlocked,
     cost,
     description,
-    onSelectHero
+    onSelect,
+    onUnlock
 }: Props) => {
     return (
         <div className='flex flex-col items-center text-center'>
@@ -34,7 +38,7 @@ const Character: React.FC<Props> = ({
                     rounded-full
                     ${!selected && 'cursor-pointer'}
                 `)}
-                onClick={() => onSelectHero && onSelectHero()}
+                onClick={() => onSelect && onSelect()}
             >
                 <img
                     className={cp(`
@@ -52,8 +56,11 @@ const Character: React.FC<Props> = ({
                 <small><p className='text-c-text opacity-70'>{description}</p></small>
             }
             {
-                cost ?
-                    <div className='mt-1 mx-auto'>
+                (cost && !unlocked) ?
+                    <div
+                        className='mt-1 mx-auto cursor-pointer'
+                        onClick={() => onUnlock && onUnlock()}
+                    >
                         <Currency amount={cost} />
                     </div> : null
             }

@@ -18,7 +18,8 @@ interface ContextProps {
     onRemoveTodo: (id: string) => void,
     onRestoreTodo: (id: string) => void,
     onClearCompleted: () => void,
-    onSelectHero: (hero: Hero) => void
+    onSelectHero: (hero: Hero) => void,
+    onUnlockHero: (hero: Hero) => void
 }
 
 export const BoardContext = createContext<Partial<ContextProps>>({});
@@ -70,6 +71,15 @@ const Board: React.FC = () => {
         }
     }
 
+    const onUnlockHero = (chosen: Hero) => {
+        if (coins >= chosen.cost) {
+            setCoins(coins - chosen.cost);
+            setHeroes(heroes
+                .map(hero => hero.id === chosen.id ? { ...hero, unlocked: true } : hero)
+            );
+        }
+    }
+
     return (
         <BoardContext.Provider value={{
             todos,
@@ -81,7 +91,8 @@ const Board: React.FC = () => {
             onRemoveTodo,
             onRestoreTodo,
             onClearCompleted,
-            onSelectHero
+            onSelectHero,
+            onUnlockHero
         }}>
             <div className='w-11/12 sm:w-10/12 mx-auto py-8'>
                 <div className='grid grid-cols-12 h-full gap-5'>
