@@ -27,6 +27,8 @@ const TodoList: React.FC = () => {
                 title: task[0].toUpperCase() + task.slice(1),
                 completed: false
             });
+
+            setTaskTitle('');
         }
     }
 
@@ -47,7 +49,6 @@ const TodoList: React.FC = () => {
                             onKeyUp={({ key }) => {
                                 if (key == 'Enter' || Number(key) == 13) {
                                     onAddNewTodo(taskTitle);
-                                    setTaskTitle('');
                                 }
                             }}
                         />
