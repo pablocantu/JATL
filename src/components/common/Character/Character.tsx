@@ -2,7 +2,7 @@ import React from 'react'
 
 import cp from 'utils/classParser';
 
-import coinImage from 'assets/images/money.png';
+import Currency from '../Currency/Currency';
 
 interface Props {
     src: string | undefined,
@@ -53,20 +53,8 @@ const Character: React.FC<Props> = ({
             }
             {
                 cost ?
-                    <div className={cp(`
-                        flex items-center justify-center
-                        gap-1
-                        mt-1 mx-auto py-1 px-2
-                        bg-c-bg-secondary text-c-text
-                        rounded-md
-                        max-w-max
-                    `)}>
-                        <img
-                            className='h-5 w-5'
-                            src={coinImage}
-                            alt='Coin'
-                        ></img>
-                        <span className='font-bold'>{cost}</span>
+                    <div className='mt-1 mx-auto'>
+                        <Currency amount={cost} />
                     </div> : null
             }
         </div>
