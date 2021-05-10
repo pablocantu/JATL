@@ -11,6 +11,7 @@ import { BoardContext } from '../Board';
 const TodoList: React.FC = () => {
     const {
         todos,
+        coins = 0,
         onAddTodo,
         onCheckTodo,
         onRemoveTodo,
@@ -21,13 +22,11 @@ const TodoList: React.FC = () => {
 
     const onAddNewTodo = (task?: string) => {
         if (task) {
-            if (onAddTodo) {
-                onAddTodo({
-                    id: uuidv4(),
-                    title: task[0].toUpperCase() + task.slice(1),
-                    completed: false
-                });
-            }
+            onAddTodo && onAddTodo({
+                id: uuidv4(),
+                title: task[0].toUpperCase() + task.slice(1),
+                completed: false
+            });
         }
     }
 
@@ -35,7 +34,7 @@ const TodoList: React.FC = () => {
         <div className='d-flex flex-col'>
             <div className='flex justify-between w-full mb-4'>
                 <span className='font-bold'>To-Dos of the Day</span>
-                <Currency amount={0} />
+                <Currency amount={coins} />
             </div>
             <ContentBox>
                 <div className='flex flex-row items-end gap-x-4 w-full'>

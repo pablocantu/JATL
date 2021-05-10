@@ -12,6 +12,7 @@ interface ContextProps {
     todos: Todo[],
     heroes: Hero[],
     hero: Hero,
+    coins: number,
     onAddTodo: (todo: Todo) => void,
     onCheckTodo: (id: string) => void,
     onRemoveTodo: (id: string) => void,
@@ -26,10 +27,11 @@ const Board: React.FC = () => {
     const [todos, setTodos] = useState<Todo[]>([]);
     const [hero, setHero] = useState<Hero>(initHeroes[0]);
     const [heroes, setHeroes] = useState<Hero[]>(initHeroes.sort((a, b) => a.cost - b.cost));
+    const [coins, setCoins] = useState<number>(0);
 
     useEffect(() => {
         setHero(heroes.filter(({ selected }) => selected)[0])
-    }, [heroes])
+    }, [heroes]);
 
     const updateTodoCompletion = (id: string, completed: boolean): Todo[] => {
         return todos.map(todo => {
@@ -44,6 +46,7 @@ const Board: React.FC = () => {
 
     const onCheckTodo = (id: string) => {
         setTodos(updateTodoCompletion(id, true));
+        setCoins(coins + 10);
     }
 
     const onRemoveTodo = (id: string) => {
@@ -72,6 +75,7 @@ const Board: React.FC = () => {
             todos,
             heroes,
             hero,
+            coins,
             onAddTodo,
             onCheckTodo,
             onRemoveTodo,
