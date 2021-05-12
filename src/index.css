@@ -21,6 +21,8 @@ body > * {
 	font-family: 'Roboto Mono', monospace;
 }
 
+@import url('components/Layout/Sidebar/ThemeSwitch/styles/themeSwitch.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

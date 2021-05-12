@@ -1,0 +1,74 @@
+/* Sun SVG */
+@keyframes enterSun {
+	0% {
+		transform: rotate(145deg);
+	}
+	100% {
+		transform: rotate(0);
+	}
+}
+
+@keyframes enterSunInnerCircle {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes enterSunRays {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#sunSVG {
+	animation: enterSun 0.75s forwards;
+}
+
+#sunSVG #innerCircle {
+	opacity: 0;
+	animation: enterSunInnerCircle 0.75s forwards;
+	animation-delay: 0.15s;
+}
+
+#sunSVG #sun rect {
+	opacity: 0;
+	animation: enterSunRays 0.75s forwards;
+	animation-delay: 0.5s;
+}
+
+/* Moon SVG */
+@keyframes enterMoon {
+	0% {
+		transform: rotate(-145deg);
+	}
+	100% {
+		transform: rotate(0);
+	}
+}
+
+@keyframes enterStar {
+	0% {
+		opacity: 0;
+		transform: translateY(25%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#moonSVG {
+	animation: enterMoon 0.75s forwards;
+}
+
+#moonSVG #star {
+	opacity: 0;
+	animation: enterStar 0.5s forwards;
+	animation-delay: 0.5s;
+}

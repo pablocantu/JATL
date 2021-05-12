@@ -19,7 +19,7 @@ const ThemeSwitch: React.FC<Props> = ({
             className='flex justify-center items-center bg-c-bg-tertiary py-1 px-2 h-14 w-16 rounded-md'
             onClick={() => onToggleTheme()}
         >
-            {theme === 'light' ? <Moon /> : <Sun />}
+            {theme === 'light' ? <Sun /> : <Moon />}
         </button>
     );
 }
