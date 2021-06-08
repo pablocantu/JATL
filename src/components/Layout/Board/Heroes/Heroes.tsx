@@ -1,13 +1,18 @@
 import React, { useContext } from 'react';
 
-import Character from 'components/common/Character/Character';
+import SelectedHero from './SelectedHero';
+import HeroItem from './HeroItem';
 
 import { BoardContext } from '../Board';
-import SelectedHero from './SelectedHero';
 
-const Characters: React.FC = () => {
+const Heroes: React.FC = () => {
     const {
-        hero,
+        hero: {
+            src,
+            name,
+            color,
+            description
+        },
         heroes,
         onSelectHero,
         onUnlockHero
@@ -17,23 +22,18 @@ const Characters: React.FC = () => {
         <div>
             <div className='flex flex-col items-center text-center border-b-2 border-c-bg-tertiary pb-4 mb-4'>
                 <SelectedHero
-                    src={hero?.src}
-                    name={hero?.name}
-                    bgColor={hero?.color}
-                    description={hero?.description}
+                    src={src}
+                    name={name}
+                    bgColor={color}
+                    description={description}
                 />
             </div>
             <div className='flex flex-col gap-8'>
                 {
                     heroes?.filter(({ selected }) => !selected).map(hero => {
-                        return <Character
+                        return <HeroItem
                             key={hero.id}
-                            src={hero.src}
-                            name={hero.name}
-                            selected={false}
-                            unlocked={hero.unlocked}
-                            bgColor={hero.color}
-                            cost={hero.cost}
+                            hero={hero}
                             onSelect={() => onSelectHero && onSelectHero(hero)}
                             onUnlock={() => onUnlockHero && onUnlockHero(hero)}
                         />;
@@ -44,4 +44,4 @@ const Characters: React.FC = () => {
     );
 }
 
-export default Characters;
+export default Heroes;

@@ -22,7 +22,7 @@ interface ContextProps {
     onUnlockHero: (hero: Hero) => void
 }
 
-export const BoardContext = createContext<Partial<ContextProps>>({});
+export const BoardContext = createContext<ContextProps | Record<string, never>>({});
 
 const Board: React.FC = () => {
     const [todos, setTodos] = useState<Todo[]>([]);
