@@ -7,7 +7,7 @@ import Currency from '../Currency/Currency';
 interface Props {
     src: string | undefined,
     name: string | undefined,
-    color: string | undefined,
+    bgColor: string | undefined,
     selected: boolean | undefined,
     unlocked?: boolean | undefined,
     cost?: number,
@@ -19,7 +19,7 @@ interface Props {
 const Character: React.FC<Props> = ({
     src,
     name,
-    color,
+    bgColor,
     selected,
     unlocked,
     cost,
@@ -30,7 +30,7 @@ const Character: React.FC<Props> = ({
     return (
         <div className='flex flex-col items-center text-center'>
             <div
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: bgColor }}
                 className={cp(`
                     relative
                     ${selected ? 'h-24 w-24' : 'h-16 w-16'}

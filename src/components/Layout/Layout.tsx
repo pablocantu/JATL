@@ -9,7 +9,7 @@ const Layout: React.FC = () => {
             <div className='sticky top-0 max-h-min w-full text-right md:max-w-min md:h-screen z-50'>
                 <Sidebar />
             </div>
-            <div className='z-40'>
+            <div className='w-11/12 sm:w-10/12 mx-auto py-8 z-40'>
                 <Board />
             </div>
         </div>
