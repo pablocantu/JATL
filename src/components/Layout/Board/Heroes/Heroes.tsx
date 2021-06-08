@@ -5,6 +5,8 @@ import HeroItem from './HeroItem';
 
 import { BoardContext } from '../Board';
 
+import cp from 'utils/classParser';
+
 const Heroes: React.FC = () => {
     const {
         hero: {
@@ -28,7 +30,10 @@ const Heroes: React.FC = () => {
                     description={description}
                 />
             </div>
-            <div className='flex flex-col gap-8'>
+            <div className={cp(`
+                flex flex-row justify-evenly flex-wrap gap-8
+                lg:flex-col
+            `)}>
                 {
                     heroes?.filter(({ selected }) => !selected).map(hero => {
                         return <HeroItem
