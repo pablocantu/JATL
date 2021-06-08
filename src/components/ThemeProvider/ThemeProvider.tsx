@@ -40,7 +40,7 @@ interface ContextProps {
     setTheme: React.Dispatch<React.SetStateAction<ThemeType>>
 }
 
-export const ThemeContext = createContext<Partial<ContextProps>>({});
+export const ThemeContext = createContext<ContextProps | Record<string, never>>({});
 
 const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
     const [theme, setTheme] = useState<ThemeType>('light');
