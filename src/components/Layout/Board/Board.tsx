@@ -5,7 +5,7 @@ import CompletedTasks from 'components/Layout/Board/CompletedTasks/CompletedTask
 import TodoList from 'components/Layout/Board/TodoList/TodoList';
 
 import { Todo } from './TodoList/models';
-import { Hero } from './Heroes/models';
+import { Hero } from './Heroes/models/Hero';
 import initHeroes from './Heroes/config/heroes';
 
 interface ContextProps {

@@ -3,7 +3,7 @@ import React from 'react'
 import Currency from 'components/common/Currency/Currency';
 import Characters from 'components/common/Character/Character';
 
-import { Hero } from './models';
+import { Hero } from './models/Hero';
 
 interface Props {
     hero: Hero,
