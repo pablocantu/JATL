@@ -4,8 +4,10 @@ import ThemeSwitch from './ThemeSwitch/ThemeSwitch';
 import Currency from 'components/common/Currency/Currency';
 
 import { ThemeContext } from '../../ThemeProvider/ThemeProvider';
+import { GlobalContext } from '../Layout';
 
 const Sidebar: React.FC = () => {
+    const { coins } = useContext(GlobalContext);
     const { theme, setTheme } = useContext(ThemeContext);
 
     return (
@@ -17,7 +19,7 @@ const Sidebar: React.FC = () => {
                 />
             </div>
             <div className='mr-2 md:hidden'>
-                <Currency amount={0} />
+                <Currency amount={coins} />
             </div>
         </div>
     );

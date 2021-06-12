@@ -5,7 +5,6 @@ export default interface ContextProps {
 	todos: Todo[];
 	heroes: Hero[];
 	hero: Hero;
-	coins: number;
 	onAddTodo: (todo: Todo) => void;
 	onCheckTodo: (id: string) => void;
 	onRemoveTodo: (id: string) => void;

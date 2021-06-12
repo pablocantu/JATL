@@ -7,11 +7,13 @@ import Task from 'components/common/Task/Task';
 import Currency from 'components/common/Currency/Currency';
 
 import { BoardContext } from '../Board';
+import { GlobalContext } from 'components/Layout/Layout';
 
 const TodoList: React.FC = () => {
+    const { coins } = useContext(GlobalContext);
+
     const {
         todos,
-        coins = 0,
         onAddTodo,
         onCheckTodo,
         onRemoveTodo,

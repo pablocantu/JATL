@@ -1,10 +1,11 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
 import Heroes from 'components/Layout/Board/Heroes/Heroes';
 import CompletedTasks from 'components/Layout/Board/CompletedTasks/CompletedTasks';
 import TodoList from 'components/Layout/Board/TodoList/TodoList';
 
-import ContextProps from './models/BoardContext';
+import { GlobalContext } from '../Layout';
+import ContextProps from './BoardContext';
 import availableHeroes from 'config/heroesList';
 import Todo from 'models/Todo';
 import Hero from 'models/Hero';
@@ -12,10 +13,15 @@ import Hero from 'models/Hero';
 export const BoardContext = createContext<ContextProps | Record<string, never>>({});
 
 const Board: React.FC = () => {
+    const {
+        coins,
+        onEarnCoins,
+        onRemoveCoins
+    } = useContext(GlobalContext);
+
     const [todos, setTodos] = useState<Todo[]>([]);
     const [hero, setHero] = useState<Hero>(availableHeroes[0]);
     const [heroes, setHeroes] = useState<Hero[]>(availableHeroes.sort((a, b) => a.cost - b.cost));
-    const [coins, setCoins] = useState<number>(0);
 
     useEffect(() => {
         setHero(heroes.filter(({ selected }) => selected)[0])
@@ -34,7 +40,7 @@ const Board: React.FC = () => {
 
     const onCheckTodo = (id: string) => {
         setTodos(updateTodoCompletion(id, true));
-        setCoins(coins + 10);
+        onEarnCoins(10);
     }
 
     const onRemoveTodo = (id: string) => {
@@ -60,7 +66,7 @@ const Board: React.FC = () => {
 
     const onUnlockHero = (chosen: Hero) => {
         if (coins >= chosen.cost) {
-            setCoins(coins - chosen.cost);
+            onRemoveCoins(chosen.cost);
             setHeroes(heroes
                 .map(hero => hero.id === chosen.id ? { ...hero, unlocked: true } : hero)
             );
@@ -72,7 +78,6 @@ const Board: React.FC = () => {
             todos,
             heroes,
             hero,
-            coins,
             onAddTodo,
             onCheckTodo,
             onRemoveTodo,
