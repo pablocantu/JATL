@@ -1,10 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react';
 
-import {
-    ThemeType,
-    ThemeColors,
-    ThemeOption
-} from './models';
+import Theme from './models/Theme';
+import { ThemeType } from 'types';
+
+export interface ThemeOption {
+    [opt: string]: Theme
+}
 
 const themes: ThemeOption = {
     light: {
@@ -55,7 +56,7 @@ const ThemeProvider: React.FC<Props> = ({ children }: Props) => {
         const rootStyling = document.documentElement.style;
 
         for (const property in themeToApply) {
-            rootStyling.setProperty(`--${property}`, themeToApply[property as keyof ThemeColors]);
+            rootStyling.setProperty(`--${property}`, themeToApply[property as keyof Theme]);
         }
 
     }, [theme]);

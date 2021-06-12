@@ -3,7 +3,7 @@ import React from 'react';
 import { ReactComponent as Sun } from 'assets/svgs/Sun.svg';
 import { ReactComponent as Moon } from 'assets/svgs/Moon.svg';
 
-import { ThemeType } from 'components/ThemeProvider/models/index';
+import { ThemeType } from 'types';
 
 interface Props {
     theme: ThemeType,
