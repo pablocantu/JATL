@@ -1,4 +1,4 @@
-import { Hero } from '../models/Hero';
+import Hero from 'models/Hero';
 import { v4 as uuidv4 } from 'uuid';
 
 import assassin from 'assets/images/assasin.png';

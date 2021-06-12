@@ -4,30 +4,17 @@ import Heroes from 'components/Layout/Board/Heroes/Heroes';
 import CompletedTasks from 'components/Layout/Board/CompletedTasks/CompletedTasks';
 import TodoList from 'components/Layout/Board/TodoList/TodoList';
 
-import { Todo } from './TodoList/models';
-import { Hero } from './Heroes/models/Hero';
-import initHeroes from './Heroes/config/heroes';
-
-interface ContextProps {
-    todos: Todo[],
-    heroes: Hero[],
-    hero: Hero,
-    coins: number,
-    onAddTodo: (todo: Todo) => void,
-    onCheckTodo: (id: string) => void,
-    onRemoveTodo: (id: string) => void,
-    onRestoreTodo: (id: string) => void,
-    onClearCompleted: () => void,
-    onSelectHero: (hero: Hero) => void,
-    onUnlockHero: (hero: Hero) => void
-}
+import ContextProps from './models/BoardContext';
+import availableHeroes from './Heroes/config/heroes';
+import Todo from 'models/Todo';
+import Hero from 'models/Hero';
 
 export const BoardContext = createContext<ContextProps | Record<string, never>>({});
 
 const Board: React.FC = () => {
     const [todos, setTodos] = useState<Todo[]>([]);
-    const [hero, setHero] = useState<Hero>(initHeroes[0]);
-    const [heroes, setHeroes] = useState<Hero[]>(initHeroes.sort((a, b) => a.cost - b.cost));
+    const [hero, setHero] = useState<Hero>(availableHeroes[0]);
+    const [heroes, setHeroes] = useState<Hero[]>(availableHeroes.sort((a, b) => a.cost - b.cost));
     const [coins, setCoins] = useState<number>(0);
 
     useEffect(() => {
