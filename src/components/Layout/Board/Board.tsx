@@ -5,7 +5,7 @@ import CompletedTasks from 'components/Layout/Board/CompletedTasks/CompletedTask
 import TodoList from 'components/Layout/Board/TodoList/TodoList';
 
 import ContextProps from './models/BoardContext';
-import availableHeroes from './Heroes/config/heroes';
+import availableHeroes from 'config/heroesList';
 import Todo from 'models/Todo';
 import Hero from 'models/Hero';
 
