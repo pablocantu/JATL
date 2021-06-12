@@ -33,7 +33,7 @@ const HeroItem: React.FC<Props> = ({
             </div>
             <div className='mt-1 font-bold'>{name}</div>
             {
-                (cost && !unlocked) ?
+                !unlocked ?
                     <div
                         className='mt-1 mx-auto cursor-pointer'
                         onClick={() => onUnlock && onUnlock()}
