@@ -3,6 +3,7 @@ import React, { createContext, useState, useEffect, useContext } from 'react';
 import Heroes from 'components/Layout/Board/Heroes/Heroes';
 import CompletedTasks from 'components/Layout/Board/CompletedTasks/CompletedTasks';
 import TodoList from 'components/Layout/Board/TodoList/TodoList';
+import NavButton from 'components/common/NavButton/NavButton';
 
 import { GlobalContext } from '../Layout';
 import ContextProps from './BoardContext';
