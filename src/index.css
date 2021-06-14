@@ -22,6 +22,7 @@ body > * {
 }
 
 @import url('components/Layout/Sidebar/ThemeSwitch/styles/themeSwitch.css');
+@import url('styles/fadeIn.css');
 
 @tailwind base;
 @tailwind components;
