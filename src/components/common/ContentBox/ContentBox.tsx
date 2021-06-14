@@ -1,18 +1,11 @@
 import React from 'react';
-
-import cp from 'utils/classParser';
-
 interface Props {
-    className?: string,
     children: React.ReactNode
 }
 
-const ContentBox: React.FC<Props> = ({
-    className,
-    children
-}: Props) => {
+const ContentBox: React.FC<Props> = ({ children }: Props) => {
     return (
-        <div className={cp(`md:p-8 md:bg-c-bg-secondary md:rounded-md ${className}`)}>
+        <div className='md:p-8 md:bg-c-bg-secondary md:rounded-md'>
             {children}
         </div>
     );

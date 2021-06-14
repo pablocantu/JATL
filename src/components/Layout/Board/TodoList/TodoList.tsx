@@ -9,6 +9,8 @@ import Character from 'components/common/Character/Character';
 import KillCounter from 'components/common/KillCounter/KillCounter';
 
 import cp from 'utils/classParser';
+import enemies from 'config/enemiesList';
+import Enemy from 'models/Enemy';
 import { BoardContext } from '../Board';
 import { GlobalContext } from 'components/Layout/Layout';
 
@@ -26,12 +28,17 @@ const TodoList: React.FC = () => {
 
     const [taskTitle, setTaskTitle] = useState<string>('');
 
+    const getRandomEnemy = (): Enemy => {
+        return enemies[Math.floor(Math.random() * enemies.length)];
+    }
+
     const onAddNewTodo = (task?: string) => {
         if (task) {
             onAddTodo && onAddTodo({
                 id: uuidv4(),
                 title: task[0].toUpperCase() + task.slice(1),
-                completed: false
+                completed: false,
+                enemy: getRandomEnemy()
             });
 
             setTaskTitle('');
@@ -103,6 +110,7 @@ const TodoList: React.FC = () => {
                                     key={todo.id}
                                     title={todo.title}
                                     completed={todo.completed}
+                                    enemy={todo.enemy}
                                     onComplete={() => onCheckTodo && onCheckTodo(todo.id)}
                                     onDelete={() => onRemoveTodo && onRemoveTodo(todo.id)}
                                     onRestore={() => onRestoreTodo && onRestoreTodo(todo.id)}

@@ -13,30 +13,32 @@ const CompletedTasks: React.FC = () => {
     } = useContext(BoardContext);
 
     return (
-        <ContentBox className='fade-in-anim'>
-            <div className='flex mb-4'>
-                <span className='mr-auto'>Completed</span>
-                <span
-                    className='text-red-700 font-bold cursor-pointer'
-                    onClick={onClearCompleted}
-                >Clear</span>
-            </div>
-            <div className='flex flex-col gap-y-2 w-full py-4'>
-                {
-                    todos?.filter(({ completed }) => completed)
-                        .map(todo => {
-                            return (
-                                <Task
-                                    key={todo.id}
-                                    title={todo.title}
-                                    completed={todo.completed}
-                                    onRestore={() => onRestoreTodo && onRestoreTodo(todo.id)}
-                                />
-                            );
-                        })
-                }
-            </div>
-        </ContentBox>
+        <div className='fade-in-anim'>
+            <ContentBox>
+                <div className='flex mb-4'>
+                    <span className='mr-auto'>Completed</span>
+                    <span
+                        className='text-red-700 font-bold cursor-pointer'
+                        onClick={onClearCompleted}
+                    >Clear</span>
+                </div>
+                <div className='flex flex-col gap-y-2 w-full py-4'>
+                    {
+                        todos?.filter(({ completed }) => completed)
+                            .map(todo => {
+                                return (
+                                    <Task
+                                        key={todo.id}
+                                        title={todo.title}
+                                        completed={todo.completed}
+                                        onRestore={() => onRestoreTodo && onRestoreTodo(todo.id)}
+                                    />
+                                );
+                            })
+                    }
+                </div>
+            </ContentBox>
+        </div>
     );
 }
 
