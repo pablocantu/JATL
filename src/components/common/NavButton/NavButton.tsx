@@ -17,7 +17,7 @@ const NavButton: React.FC<Props> = ({
 }: Props) => {
     return (
         <div className={cp(`
-            h-10 py-3 px-4
+            max-h-12 py-3 px-4
             bg-c-bg-secondary rounded
             flex items-center justify-center
             ${active && 'border-c-primary border-b-4'}
@@ -28,7 +28,7 @@ const NavButton: React.FC<Props> = ({
             `)}>
                 {title}
             </span>
-            <i className={icon}></i>
+            <img className={`${active ? 'h-6 w-6' : 'h-7 w-7'}`} src={icon} alt={title} />
             {
                 detail &&
                 <span className={cp(`

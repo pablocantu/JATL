@@ -11,7 +11,7 @@ const KillCounter: React.FC<Props> = ({
 }: Props) => {
     return (
         <div className='flex items-center text-c-text'>
-            <img className='h-5 w-5 mr-2' src={swords}></img>
+            <img className='h-5 w-5 mr-2' alt='killcount' src={swords}></img>
             <span className='font-bold text-lg'>{count}</span>
         </div>
     );
