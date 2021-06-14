@@ -1,7 +1,7 @@
 .fade-in-anim {
 	opacity: 0;
 	display: inline;
-	animation: fadeIn 1s forwards 0.5s;
+	animation: fadeIn 0.75s forwards;
 }
 
 @keyframes fadeIn {

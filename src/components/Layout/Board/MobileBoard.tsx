@@ -30,7 +30,7 @@ const MobileBoard: React.FC = () => {
     return (
         <div className='flex flex-col mb-4'>
             <div className='flex flex-wrap justify-evenly gap-3 mb-4'>
-                <Link to={TASKS_ROUTE} className={`transition-all duration-1000 ${pathname === TASKS_ROUTE ? 'flex-1' : ''}`}>
+                <Link to={TASKS_ROUTE} className={pathname === TASKS_ROUTE ? 'flex-1' : ''}>
                     <NavButton
                         title='Enemies'
                         icon={tasksIcon}
@@ -38,14 +38,14 @@ const MobileBoard: React.FC = () => {
                         active={pathname === TASKS_ROUTE}
                     />
                 </Link>
-                <Link to={COMPLETED_ROUTE} className={`transition-all duration-1000 ${pathname === COMPLETED_ROUTE ? 'flex-1' : ''}`}>
+                <Link to={COMPLETED_ROUTE} className={pathname === COMPLETED_ROUTE ? 'flex-1' : ''}>
                     <NavButton
                         title='Chronicles'
                         icon={completedIcon}
                         active={pathname === COMPLETED_ROUTE}
                     />
                 </Link>
-                <Link to={HEROES_ROUTE} className={`transition-all duration-1000 ${pathname === HEROES_ROUTE ? 'flex-1' : ''}`}>
+                <Link to={HEROES_ROUTE} className={pathname === HEROES_ROUTE ? 'flex-1' : ''}>
                     <NavButton
                         title='Heroes'
                         icon={heroesIcon}

@@ -13,8 +13,8 @@ const CompletedTasks: React.FC = () => {
     } = useContext(BoardContext);
 
     return (
-        <ContentBox>
-            <div className='flex mb-4 fade-in-anim'>
+        <ContentBox className='fade-in-anim'>
+            <div className='flex mb-4'>
                 <span className='mr-auto'>Completed</span>
                 <span
                     className='text-red-700 font-bold cursor-pointer'
