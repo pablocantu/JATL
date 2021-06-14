@@ -16,7 +16,12 @@ const NavButton: React.FC<Props> = ({
     active = true
 }: Props) => {
     return (
-        <div className='flex items-center'>
+        <div className={cp(`
+            h-10 py-3 px-4
+            bg-c-bg-secondary rounded
+            flex items-center justify-center
+            ${active && 'border-c-primary border-b-4'}
+        `)}>
             <span className={cp(`
                 mr-2
                 ${active ? 'inline' : 'hidden'}
