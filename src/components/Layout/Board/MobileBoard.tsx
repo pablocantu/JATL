@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, NavLink, useLocation } from 'react-router-dom';
+import { Route, Link, useLocation } from 'react-router-dom';
 
 import NavButton from 'components/common/NavButton/NavButton';
 import TodoList from 'components/Layout/Board/TodoList/TodoList';
@@ -12,15 +12,15 @@ const MobileBoard: React.FC = () => {
     return (
         <div className='flex flex-col mb-4'>
             <div className='flex flex-wrap'>
-                <NavLink to='/tasks'>
+                <Link to='/tasks'>
                     <NavButton title='Enemies' icon='fas fa-user' detail='(0)' active={pathname === '/tasks'} />
-                </NavLink>
-                <NavLink to='/completed'>
+                </Link>
+                <Link to='/completed'>
                     <NavButton title='Chronicles' icon='fas fa-user' active={pathname === '/completed'} />
-                </NavLink>
-                <NavLink to='/heroes'>
+                </Link>
+                <Link to='/heroes'>
                     <NavButton title='Heroes' icon='fas fa-user' active={pathname === '/heroes'} />
-                </NavLink>
+                </Link>
             </div>
             <Route path='/tasks' component={TodoList} />
             <Route path='/completed' component={CompletedTasks} />
