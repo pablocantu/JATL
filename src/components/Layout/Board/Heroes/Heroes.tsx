@@ -21,7 +21,7 @@ const Heroes: React.FC = () => {
     } = useContext(BoardContext);
 
     return (
-        <div>
+        <div className='fade-in-anim'>
             <div className='flex flex-col items-center text-center border-b-2 border-c-bg-tertiary pb-4 mb-4'>
                 <SelectedHero
                     src={src}

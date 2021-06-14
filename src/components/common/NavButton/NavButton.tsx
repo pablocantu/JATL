@@ -22,15 +22,15 @@ const NavButton: React.FC<Props> = ({
             flex items-center justify-center
             ${active && 'border-c-primary border-b-4'}
         `)}>
-            <span className={`mr-2 ${active ? 'inline fade-in-anim' : 'hidden'}`}>
+            <span className={`mr-2 ${active ? 'inline' : 'hidden'}`}>
                 {title}
             </span>
-            <img className={`${active ? 'fade-in-anim h-6 w-6' : 'h-7 w-7'}`}
+            <img className={`${active ? 'h-6 w-6' : 'h-7 w-7'}`}
                 src={icon}
                 alt={title}
             />
             {detail &&
-                <span className={`ml-1 ${active ? 'inline fade-in-anim' : 'hidden'}`}>
+                <span className={`ml-1 ${active ? 'inline' : 'hidden'}`}>
                     {detail}
                 </span>
             }

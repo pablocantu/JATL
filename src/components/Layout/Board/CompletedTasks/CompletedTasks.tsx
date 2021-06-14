@@ -14,7 +14,7 @@ const CompletedTasks: React.FC = () => {
 
     return (
         <ContentBox>
-            <div className='flex mb-4'>
+            <div className='flex mb-4 fade-in-anim'>
                 <span className='mr-auto'>Completed</span>
                 <span
                     className='text-red-700 font-bold cursor-pointer'

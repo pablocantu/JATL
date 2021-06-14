@@ -69,7 +69,7 @@ const TodoList: React.FC = () => {
     );
 
     return (
-        <div className='d-flex flex-col'>
+        <div className='d-flex flex-col fade-in-anim'>
             {renderMobileHeader()}
             {renderDesktopHeader()}
             <ContentBox>
