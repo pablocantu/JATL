@@ -13,7 +13,7 @@ import { BoardContext } from '../Board';
 import { GlobalContext } from 'components/Layout/Layout';
 
 const TodoList: React.FC = () => {
-    const { coins } = useContext(GlobalContext);
+    const { coins, killcount } = useContext(GlobalContext);
 
     const {
         hero,
@@ -38,34 +38,40 @@ const TodoList: React.FC = () => {
         }
     }
 
-    return (
-        <div className='d-flex flex-col'>
-            {/* TodoList header for Desktop screens */}
-            <div className={cp(`
-                hidden
-                md:flex justify-between w-full mb-4
-            `)}>
-                <span className='font-bold'>To-Dos of the Day</span>
-                <Currency amount={coins} />
-            </div>
-            {/* TodoList header for Mobile screens */}
-            <div className={cp(`
+    const renderDesktopHeader = () => (
+        <div className={cp(`
+            hidden
+            md:flex justify-between w-full mb-4
+        `)}>
+            <span className='font-bold'>To-Dos of the Day</span>
+            <Currency amount={coins} />
+        </div>
+    );
+
+    const renderMobileHeader = () => (
+        <div className={cp(`
                 mt-5 mb-4 
                 flex justify-center items-center gap-2
                 md:hidden
             `)}>
-                <Character
-                    name={hero.name}
-                    src={hero.src}
-                    bgColor={hero.color}
-                    height='h-16'
-                    width='h-16'
-                />
-                <div className='flex flex-col'>
-                    <span className='font-bold text-c-text text-lg'>{hero.name}</span>
-                    <KillCounter count={0} />
-                </div>
+            <Character
+                name={hero.name}
+                src={hero.src}
+                bgColor={hero.color}
+                height='h-16'
+                width='h-16'
+            />
+            <div className='flex flex-col'>
+                <span className='font-bold text-c-text text-lg'>{hero.name}</span>
+                <KillCounter count={killcount} />
             </div>
+        </div>
+    );
+
+    return (
+        <div className='d-flex flex-col'>
+            {renderMobileHeader()}
+            {renderDesktopHeader()}
             <ContentBox>
                 <div className='flex flex-row items-end gap-x-4 w-full'>
                     <div className='flex-grow'>

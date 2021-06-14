@@ -9,6 +9,7 @@ export const GlobalContext = createContext<ContextProps | Record<string, never>>
 
 const Layout: React.FC = () => {
     const [coins, setCoins] = useState<number>(0);
+    const [killcount, setKillCount] = useState<number>(0);
 
     const onEarnCoins = (amount: number) => {
         setCoins(coins + amount);
@@ -18,11 +19,17 @@ const Layout: React.FC = () => {
         setCoins(coins - amount);
     }
 
+    const onKillEnemy = () => {
+        setKillCount(killcount + 1);
+    }
+
     return (
         <GlobalContext.Provider value={{
             coins,
+            killcount,
             onEarnCoins,
-            onRemoveCoins
+            onRemoveCoins,
+            onKillEnemy
         }}>
             <div className='flex flex-col md:flex-row'>
                 <div className='sticky top-0 w-full text-right md:max-w-min md:h-screen z-50'>

@@ -15,7 +15,8 @@ const Board: React.FC = () => {
     const {
         coins,
         onEarnCoins,
-        onRemoveCoins
+        onRemoveCoins,
+        onKillEnemy
     } = useContext(GlobalContext);
 
     const [todos, setTodos] = useState<Todo[]>([]);
@@ -40,6 +41,7 @@ const Board: React.FC = () => {
     const onCheckTodo = (id: string) => {
         setTodos(updateTodoCompletion(id, true));
         onEarnCoins(10);
+        onKillEnemy();
     }
 
     const onRemoveTodo = (id: string) => {
