@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { Route, Link, useLocation } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react'
+import { Route, Link, useLocation, useHistory } from 'react-router-dom';
 
 import NavButton from 'components/common/NavButton/NavButton';
 import TodoList from 'components/Layout/Board/TodoList/TodoList';
@@ -17,9 +17,15 @@ const COMPLETED_ROUTE = '/completed';
 const HEROES_ROUTE = '/heroes';
 
 const MobileBoard: React.FC = () => {
+    const history = useHistory();
     const { pathname } = useLocation();
+
     const { todos } = useContext(BoardContext);
     const pendingTodos = todos?.filter(todo => !todo.completed).length;
+
+    useEffect(() => {
+        history.push('/tasks');
+    }, []);
 
     return (
         <div className='flex flex-col mb-4'>
