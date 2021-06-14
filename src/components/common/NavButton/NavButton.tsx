@@ -25,7 +25,7 @@ const NavButton: React.FC<Props> = ({
             <span className={`mr-2 ${active ? 'inline fade-in-anim' : 'hidden'}`}>
                 {title}
             </span>
-            <img className={`${active ? 'h-6 w-6' : 'h-7 w-7'}`}
+            <img className={`${active ? 'fade-in-anim h-6 w-6' : 'h-7 w-7'}`}
                 src={icon}
                 alt={title}
             />
