@@ -1,9 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
-import Heroes from 'components/Layout/Board/Heroes/Heroes';
-import CompletedTasks from 'components/Layout/Board/CompletedTasks/CompletedTasks';
-import TodoList from 'components/Layout/Board/TodoList/TodoList';
-import NavButton from 'components/common/NavButton/NavButton';
+import DesktopBoard from './DesktopBoard';
+import MobileBoard from './MobileBoard';
 
 import { GlobalContext } from '../Layout';
 import ContextProps from './BoardContext';
@@ -87,20 +85,11 @@ const Board: React.FC = () => {
             onSelectHero,
             onUnlockHero
         }}>
-            <div className='grid grid-cols-12 h-full gap-5'>
-                <div className='col-span-12 px-4 min-w-min lg:col-span-2 lg:row-span-1'>
-                    <Heroes />
-                </div>
-                <div className='col-span-12 lg:col-span-10'>
-                    <div className='flex flex-col xl:flex-row gap-5'>
-                        <div className='w-full'>
-                            <TodoList />
-                        </div>
-                        <div className='w-full xl:w-5/12'>
-                            <CompletedTasks />
-                        </div>
-                    </div>
-                </div>
+            <div className='hidden md:block'>
+                <DesktopBoard />
+            </div>
+            <div className='md:hidden'>
+                <MobileBoard />
             </div>
         </BoardContext.Provider>
     );
