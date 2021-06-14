@@ -1,8 +1,8 @@
 import React from 'react';
 
+import TodoList from './TodoList/TodoList';
 import Heroes from 'components/Layout/Board/Heroes/Heroes';
 import CompletedTasks from 'components/Layout/Board/CompletedTasks/CompletedTasks';
-import DesktopTodos from 'components/Layout/Board/TodoList/DesktopTodos';
 
 const DesktopBoard: React.FC = () => {
     return (
@@ -13,7 +13,7 @@ const DesktopBoard: React.FC = () => {
             <div className='col-span-12 lg:col-span-10'>
                 <div className='flex flex-col xl:flex-row gap-5'>
                     <div className='w-full'>
-                        <DesktopTodos />
+                        <TodoList />
                     </div>
                     <div className='w-full xl:w-5/12'>
                         <CompletedTasks />

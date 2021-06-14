@@ -6,7 +6,7 @@ interface Props {
 
 const ContentBox: React.FC<Props> = ({ children }: Props) => {
     return (
-        <div className='p-8 bg-c-bg-secondary rounded-md'>
+        <div className='md:p-8 md:bg-c-bg-secondary md:rounded-md'>
             {children}
         </div>
     );
