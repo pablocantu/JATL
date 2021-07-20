@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { Route, Link, useLocation, useHistory } from 'react-router-dom';
+import { Route, NavLink, useLocation, useHistory } from 'react-router-dom';
 
 import NavButton from 'components/common/NavButton/NavButton';
 import TodoList from 'components/Layout/Board/TodoList/TodoList';
@@ -29,30 +29,30 @@ const MobileBoard: React.FC = () => {
 
     return (
         <div className='flex flex-col mb-4'>
-            <div className='flex flex-wrap justify-evenly gap-3 mb-4'>
-                <Link to={TASKS_ROUTE} className={pathname === TASKS_ROUTE ? 'flex-1' : ''}>
+            <nav className='flex flex-wrap justify-evenly gap-3 mb-4'>
+                <NavLink to={TASKS_ROUTE} activeClassName='flex-1'>
                     <NavButton
                         title='Enemies'
                         icon={tasksIcon}
                         detail={`(${pendingTodos})`}
                         active={pathname === TASKS_ROUTE}
                     />
-                </Link>
-                <Link to={COMPLETED_ROUTE} className={pathname === COMPLETED_ROUTE ? 'flex-1' : ''}>
+                </NavLink>
+                <NavLink to={COMPLETED_ROUTE} activeClassName='flex-1'>
                     <NavButton
                         title='Chronicles'
                         icon={completedIcon}
                         active={pathname === COMPLETED_ROUTE}
                     />
-                </Link>
-                <Link to={HEROES_ROUTE} className={pathname === HEROES_ROUTE ? 'flex-1' : ''}>
+                </NavLink>
+                <NavLink to={HEROES_ROUTE} activeClassName='flex-1'>
                     <NavButton
                         title='Heroes'
                         icon={heroesIcon}
                         active={pathname === HEROES_ROUTE}
                     />
-                </Link>
-            </div>
+                </NavLink>
+            </nav>
             <Route path={TASKS_ROUTE} component={TodoList} />
             <Route path={COMPLETED_ROUTE} component={CompletedTasks} />
             <Route path={HEROES_ROUTE} component={Heroes} />
